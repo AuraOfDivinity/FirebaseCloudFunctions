@@ -9,6 +9,7 @@ import {
   NavLink,
   NavbarText
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const NavBar = props => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,18 +18,34 @@ const NavBar = props => {
 
   return (
     <div>
-      <Navbar color="dark" light expand="md">
+      <Navbar color="dark" dark expand="md">
         <NavbarBrand href="/">WhatToDo</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">My Todos</NavLink>
+              <Link
+                to="/"
+                style={{
+                  textDecoration: "none",
+                  color: "white",
+                  marginLeft: "15px"
+                }}
+              >
+                My Todos
+              </Link>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
+              <Link
+                to="/add"
+                style={{
+                  textDecoration: "none",
+                  color: "white",
+                  marginLeft: "15px"
+                }}
+              >
                 Add To do
-              </NavLink>
+              </Link>
             </NavItem>
           </Nav>
           <NavbarText>Simple Text</NavbarText>
